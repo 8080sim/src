@@ -1,0 +1,79 @@
+ 1990/95 | Gewerbl. Schulen I, W-tal
+Ver 2.83
+COM2
+LPT1
+LPT1
+$2F8
+d:\sim\8080\ROM\
+d:\sim\8080\PRG\
+PCL
+@
+27
+64
+@
+;
+;In dieser Datei legt die erste Zeile den Text fest, der bei der Ausgabe
+;einer LST - Datei auf den Drucker im Kopf gedruckt wird. Die
+;Textl„nge darf maximal 40 Zeichen betragen.
+;
+;Die zweite Zeile legt die Programmversion fest,
+;fr die diese Datei geeignet ist.
+;Beachten Sie bitte, daá die Zeile genau die Form:
+;Ver X.XX
+;haben muá. Auch Groá- und Kleinschreibung ist hier im Gegensatz
+;zu den Folgezeilen wichtig!!
+;
+;Die n„chste Zeile legt den COM - Port fr die
+;Sellerie - Schnitzstelle fest.
+;šber diese Schnittstelle k”nnen mit dem Programm 8080SIM
+;Daten die im Intel - Hex oder ASCII - Format vorliegen, seriell
+;an einen Zielcomputer bertragen werden.
+;Intel - Hex Dateien werden dabei vorher in Bin„rdateien umgewandelt.
+;Grunds„tzlich werden 8 Datenbits, keine Parit„t, 2 Stopbits ber-
+;tragen!
+; Die ASCII - šbertragung wird mit ^Z beendet
+;
+;die 3. Zeile entscheidet, ob die PC - Druckerschnittstelle auf
+;die Simulatoradresse 20h abgebildet wird. (nicht beim EZ80)
+;gltige Eintr„ge sind LPT1 und LPT2. Alle anderen Eintr„ge verhindern
+;die Druckeransteuerung. Port 20h ist dann frei!
+;Der Drucker kann parallel zu einer IO-Karte verwendet werden.
+;Diese Zeile kann auch entfallen. Port 20h ist dann ebenfalls
+;fr andere Anwendungen frei.
+;
+;Die n„chste Zeile erlaubt den Ausdruck des Listings auf die LPT2
+;Schnittstelle (Besonderer Wunsch von Herrn Camphausen!).
+;Dazu muá! der Eintrag LPT2 lauten. Bei allen anderen Einstellungen
+;erfolgt der Ausdruck des Listings auf LPT1!
+;
+;Die folgende Zahl legt die Basisadresse fr eine beliebige
+;IO - Erweiterung fest, die auf den Port 30h des Profi5 / MFA
+;abgebildet wird. Dabei findet jedoch keine Bin„ranzeige wie
+;bei den 8255 Ports statt. Das IO - Ergebnis wird jedoch im
+;Akkumulator bernommen bzw. angezeigt. Dadurch wird die
+;Programmierung auch anderer IO - Bausteine m”glich.
+;
+;Die n„chste Zeile bestimmt, wo die .ROM und .SYM Dateien zu suchen
+;sind.
+;
+;Die folgende Zeile legt das Unterverzeichnis fr die vom Anwender
+;erstellten Programme fest. Diese Zeile ist nur wirksam, wenn keine
+;MSK - Datei existiert. Sonst gilt das zuletzt benutzte Verzeichnis!
+;
+;Nun wird der angeschlossene Drucker zur Listingausgabe eingestellt.
+;M”gliche Eintr„ge sind:
+;     ESCP fr Epson - kompatible Drucker und
+;     PCL  fr HP - Deskjet kompatible.
+;     CUSTOM fr beliebige IBM - ASCII Drucker.
+;Im letzten Fall werden die folgenden Zeilen wie folgt ausgewertet:
+;1. Zeile <> @ : dann werden keine Steuerzeichen zum Drucker geschickt.
+;1. Zeile =  @ : Die folgenden Zeilen werden eingelesen und vor dem
+;      Druck des Listings zum Drucker geschickt. Das Format der Zeilen
+;      ist wie folgt:
+;      Jede Zeile darf genau eine Zahl beinhalten.
+;      (Z.B. 10 oder $0A (fr dez. oder hex)
+;      Diese Zahl repr„sentiert ein ASCII - Zeichen das als Steuerzeichen zum
+;      Drucker geschickt werden soll.
+;      Nach der letzten Zahl muá! eine Zeile mit dem @-Zeichen folgen.
+;      Damit wird die Initialisierungssequenz abgeschlossen.
+;

@@ -1,0 +1,35 @@
+Ver 2.51
+COM2
+110
+LPT1
+ROM\
+PRG\
+;
+;In dieser Datei legt die erste Zeile die Programmversion fest,
+;fr die diese Datei geeignet ist.
+;Beachten Sie bitte, daá die Zeile genau die Form:
+;Ver X.XX
+;haben muá. Auch Groá- und Kleinschreibung ist hier im Gegensatz zu
+;den Folgezeilen wichtig!!
+;
+;Die n„chsten beiden Zeilen legen den COM - Port
+;und die Baudrate fr die Sellerie - Schnittstelle fest.
+;šber diese Schnittstelle k”nnen mit dem Programm 8080SIM
+;Daten die im Intel - Hex oder ASCII - Format vorliegen, seriell
+;an einen Zielcomputer bertragen werden.
+;Intel - Hex Dateien werden dabei vorher in Bin„rdateien umgewandelt.
+;Grunds„tzlich werden 8 Datenbits, keine Parit„t, 2 Stopbits ber-
+;tragen!
+;
+;die vierte Zeile entscheidet, ob die PC - Druckerschnitzstelle auf
+;die Simulatoradresse 20h abgebildet wird. (nicht beim EZ80)
+;gltige Eintr„ge sind LPT1 und LPT2. Alle anderen Eintr„ge verhindern
+;die Druckeransteuerung. Der Drucker kann parallel zu einer IO-Karte
+;verwendet werden.
+;
+;Die fnfte Zeile legt fest, wo die .ROM und .SYM Dateien zu suchen
+;sind. Dabei muá es sich um ein Unterverzeichnis des Verzeichnisses
+;handeln in dem sich das Programm 8080SIM befindet.
+;
+;Die sechste Zeile legt das Unterverzeichnis fr die vom Anwender
+;erstellten Programme fest.

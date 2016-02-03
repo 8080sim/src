@@ -1,0 +1,7 @@
+	procedure ResetBinaryEditor(var EdData : EdCB);
+		{-Call the editor reset procedure}
+	VAR DUMMY:BYTE;
+>^^^^^^^^^^^^^^^^
+	begin                       {ResetBinaryEditor}
+		EditNew(EdData);
+	end;                        {ResetBinaryEditor}
